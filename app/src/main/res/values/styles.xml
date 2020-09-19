@@ -1,10 +1,23 @@
 <resources>
     <!-- Base application theme. -->
-    <style name = "AppTheme" parent = "Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name = "colorPrimary">@color/colorPrimary</item>
-        <item name = "colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name = "colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@android:color/holo_orange_light</item>
+        <item name="android:textViewStyle">@style/CustomTextStyle</item>
+        <item name="actionBarPopupTheme">@style/PopupOverlay</item>
     </style>
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="iconTint">@android:color/white</item>
+    </style>
+
+    <style name="CustomTextStyle" parent="android:Widget.Material.TextView">
+        <item name="android:textColor">?colorAccent</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
 
 </resources>

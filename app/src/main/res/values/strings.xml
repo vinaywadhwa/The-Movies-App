@@ -1,3 +1,7 @@
 <resources>
     <string name = "app_name">The Movies App</string>
+    <string name="api_key">fd75d8c708d418f9ee6280f179e7f399</string>
+    <string name="dark_mode_switch">Dark Mode</string>
+    <string name="refresh_button">Refresh</string>
+    <string name="menu_about">About</string>
 </resources>
