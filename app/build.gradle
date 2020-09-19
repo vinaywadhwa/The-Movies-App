@@ -26,7 +26,6 @@ android {
         }
     }
     compileOptions {
-        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -46,6 +45,8 @@ dependencies {
     //UI libs from Google
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation "androidx.recyclerview:recyclerview:1.2.0-alpha05"
+    implementation 'com.google.android.material:material:1.2.1'
+
 
     //room database
     implementation "androidx.room:room-runtime:2.2.5"
@@ -80,8 +81,9 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.4.2'
     implementation 'jp.wasabeef:recyclerview-animators:4.0.0'
 
-    //for using things like 'Instant' in an app with min api < 25
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.10'
+    //Fonts
+    implementation 'com.vstechlab.easyfonts:easyfonts:1.0.0'
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

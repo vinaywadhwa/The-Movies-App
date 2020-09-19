@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/movies"
+    app:startDestination="@id/movieListFragment">
+
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.vwap.themoviesapp.view.MovieListFragment"
+        android:label="Movies" >
+        <action
+            android:id="@+id/showMovieDetail"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.vwap.themoviesapp.view.MovieDetailFragment"
+        android:label="{title}" >
+        <argument
+            android:name="model"
+            app:argType="com.vwap.themoviesapp.model.MovieModel" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+</navigation>

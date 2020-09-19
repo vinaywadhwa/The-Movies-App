@@ -4,4 +4,6 @@
     <string name="dark_mode_switch">Dark Mode</string>
     <string name="refresh_button">Refresh</string>
     <string name="menu_about">About</string>
+    <string name="the_movie_app_splash">THE MOVIE\nAPP</string>
+    <string name="empty_results_message">Where\'d the movies go?</string>
 </resources>
