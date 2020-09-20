@@ -65,8 +65,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-    //image loading
-    implementation("io.coil-kt:coil:0.12.0")
+    //Dependency Injection
+    implementation 'com.google.dagger:dagger:2.24'
+    kapt 'com.google.dagger:dagger-compiler:2.24'
 
     //networking/retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -83,6 +84,10 @@ dependencies {
 
     //Fonts
     implementation 'com.vstechlab.easyfonts:easyfonts:1.0.0'
+
+    //image loading
+    implementation("io.coil-kt:coil:0.12.0")
+
 
 
     testImplementation 'junit:junit:4.12'

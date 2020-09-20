@@ -1,18 +1,16 @@
 package com.vwap.themoviesapp.repository
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.vwap.themoviesapp.R
 import com.vwap.themoviesapp.model.MovieModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import javax.inject.Inject
 
-class MoviesRepository(private val context: Application) {
-    private val localDataSource: LocalDataSource = LocalDataSource(context)
-    private val remoteDataSource: RemoteDataSource = RemoteDataSource()
+class MoviesRepository @Inject constructor(private val localDataSource: LocalDataSource, private val remoteDataSource: RemoteDataSource) {
+
     private val cacheUpdaterLambda = Observer<List<MovieModel>> {
         /**
          * using global scope because we must save the data despite of the view state
@@ -31,7 +29,8 @@ class MoviesRepository(private val context: Application) {
 
     init {
         Timber.d("triggering initial fetch from remote DS")
-        remoteDataSource.fetch(context.getString(R.string.api_key))
+//        remoteDataSource.fetch(context.getString(R.string.api_key)) // TODO inject this!
+        remoteDataSource.fetch()
         remoteDataSource.results.observeForever(cacheUpdaterLambda)
     }
 
@@ -39,7 +38,7 @@ class MoviesRepository(private val context: Application) {
 
     fun refresh() {
         Timber.d("triggering remote fetch")
-        remoteDataSource.fetch(context.getString(R.string.api_key))
+        remoteDataSource.fetch()
     }
 
 

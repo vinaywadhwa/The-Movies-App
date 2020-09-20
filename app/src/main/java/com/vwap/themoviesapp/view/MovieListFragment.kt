@@ -44,6 +44,8 @@ class MovieListFragment : Fragment() {
     }
 
     private fun setupEmptyView() {
+        //in a larger project, this should be done with help
+        // of a reusable component (say EmptyViewHelper)
         binding.emptyText.setCustomFont(EasyFonts.walkwayBold(binding.emptyText.context))
         binding.groupEmptyView.visibility = View.VISIBLE
     }

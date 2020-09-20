@@ -3,7 +3,6 @@ package com.vwap.themoviesapp.database
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.vwap.themoviesapp.model.MovieModel
-import timber.log.Timber
 
 @Entity
 class MovieEntity {

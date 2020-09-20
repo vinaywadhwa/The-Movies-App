@@ -13,6 +13,12 @@ import com.vwap.themoviesapp.R
 import com.vwap.themoviesapp.databinding.MovieDetailsBinding
 import com.vwap.themoviesapp.model.MovieModel
 
+/**
+ * This class receives data via Navigation Components Arguments
+ * and shows details about the movie.
+ * We can also use a shared view model instead (to pass data)
+ * tied to [MainActivity] scope and also used by [MovieListFragment]).
+ */
 class MovieDetailFragment : Fragment() {
     private val args: MovieDetailFragmentArgs by navArgs()
     private lateinit var binding: MovieDetailsBinding

@@ -10,12 +10,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
+import javax.inject.Inject
+import javax.inject.Named
 
-class RemoteDataSource {
+class RemoteDataSource @Inject constructor(@Named("apiKey") private val apiKey: String){
     private val _results = MutableLiveData<List<MovieModel>>(listOf())
     val results: LiveData<List<MovieModel>> = _results
 
-    fun fetch(apiKey: String) {
+    fun fetch() {
         Timber.d("fetch called!")
         val request = ServiceBuilder.buildService(ApiEndpoints::class.java)
         val call = request.getMovies(apiKey)

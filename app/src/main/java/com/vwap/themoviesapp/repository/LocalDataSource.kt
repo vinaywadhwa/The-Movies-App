@@ -7,11 +7,12 @@ import com.vwap.themoviesapp.database.MovieDatabase
 import com.vwap.themoviesapp.database.MovieEntity
 import com.vwap.themoviesapp.model.MovieModel
 import timber.log.Timber
+import javax.inject.Inject
 
-class LocalDataSource(context: Application) {
+class LocalDataSource @Inject constructor(movieDatabase: MovieDatabase) {
     private val _results = MutableLiveData<List<MovieModel>>()
     val results: LiveData<List<MovieModel>> = _results
-    private val db: MovieDatabase = MovieDatabase[context]
+    private val db: MovieDatabase = movieDatabase
 
     suspend fun reload() {
         Timber.d("reloading data and posting")
