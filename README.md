@@ -8,7 +8,7 @@ This app uses the [TMDB](https://www.themoviedb.org/documentation/api) api to fe
 
 
 ## 🤔 What is this - REALLY?
-What the app is really about is to demonstrate the usage of a some open source libraries and modern architecture patterns for Android development, such as the following :
+The app is REALLY about demonstrating usage of a some open source libraries and modern architecture patterns for Android development, such as the following :
 
 - MVVM architecture pattern
 - LiveData
@@ -27,13 +27,13 @@ and a few others.
 This app implements some frequently encountered patterns in Android development
 
 ### ©️ Caching data for Offline Viewing
-The app caches data received via the API request in a local database (using Room) and uses that in subsequent app launches if there is not/sketchy internet connectivity. 
+The app caches data received via the API request in a local database (using Room) and uses that in subsequent app launches if there is no/sketchy internet connectivity. 
 
 ![Demo](03_caching.gif)
 
 
 ### 🔍 Empty/No Data screen + 🔄 Refresh pattern
-In case there is no internet connectivity when the app is launched for the first time, you might encounter empty' screen the following screen :
+In case there is no internet connectivity when the app is launched for the first time, you might encounter the following 'empty' screen :
 
 ![Demo](02_empty_screen.gif)
 
