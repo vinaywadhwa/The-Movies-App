@@ -3,7 +3,6 @@ package com.vwap.themoviesapp.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.vwap.themoviesapp.api.ApiEndpoints
-import com.vwap.themoviesapp.api.ServiceBuilder
 import com.vwap.themoviesapp.model.MovieModel
 import com.vwap.themoviesapp.model.MoviesList
 import retrofit2.Call
@@ -13,13 +12,15 @@ import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Named
 
-class RemoteDataSource @Inject constructor(@Named("apiKey") private val apiKey: String){
+class RemoteDataSource @Inject constructor(
+    @Named("apiKey") private val apiKey: String,
+    private val request: ApiEndpoints
+) {
     private val _results = MutableLiveData<List<MovieModel>>(listOf())
     val results: LiveData<List<MovieModel>> = _results
 
     fun fetch() {
         Timber.d("fetch called!")
-        val request = ServiceBuilder.buildService(ApiEndpoints::class.java)
         val call = request.getMovies(apiKey)
 
         //fetch fresh data from

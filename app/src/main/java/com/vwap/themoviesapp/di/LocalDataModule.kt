@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class AppModule {
+class LocalDataModule {
 
     @Provides
     fun provideDatabase(application: Application): MovieDatabase = MovieDatabase[application]

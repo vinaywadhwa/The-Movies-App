@@ -3,11 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/dark_mode_switch_menu"
-        android:title="@string/dark_mode_switch"
-        app:actionLayout="@layout/switch_item"
-        app:showAsAction="ifRoom" />
-    <item
         android:id="@+id/refresh"
         android:icon="@drawable/ic_baseline_refresh_24"
         android:title="@string/refresh_button"

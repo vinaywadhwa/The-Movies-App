@@ -6,7 +6,7 @@ import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Named
 
-@Component(modules = [AppModule::class])
+@Component(modules = [LocalDataModule::class, RemoteDataModule::class])
 interface ApplicationComponent {
     /**
      * Enables injection of fields in [MoviesViewModel]
@@ -26,11 +26,12 @@ interface ApplicationComponent {
          */
         @BindsInstance
         fun setApplication(application: Application): Builder
+
         /**
          * Inject the application context, to be used by [AppModule.provideDatabase].
          */
 
         @BindsInstance
-        fun setApiKey(@Named("apiKey")  apiKey: String): Builder
+        fun setApiKey(@Named("apiKey") apiKey: String): Builder
     }
 }

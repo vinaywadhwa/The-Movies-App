@@ -6,4 +6,5 @@
     <string name="menu_about">About</string>
     <string name="the_movie_app_splash">THE MOVIE\nAPP</string>
     <string name="empty_results_message">Where\'d the movies go?</string>
+    <string name="about_url">https://github.com/vinaywadhwa/The-Movies-App</string>
 </resources>

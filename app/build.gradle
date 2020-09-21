@@ -89,9 +89,24 @@ dependencies {
     implementation("io.coil-kt:coil:0.12.0")
 
 
-
+    // --- TESTING dependencies begin here ---
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Espresso
+    def androidx_test_espresso = "3.3.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$androidx_test_espresso"
+    implementation "androidx.test.espresso:espresso-idling-resource:$androidx_test_espresso"
+
+    //Fragment testing
+    def fragment_version = "1.2.5"
+    debugImplementation("androidx.fragment:fragment-testing:$fragment_version") {
+        exclude group: 'androidx.test', module: 'monitor'
+    }
+
+    // Mockk.io
+    def mockk_version = "1.9.3"
+    androidTestImplementation "io.mockk:mockk-android:$mockk_version"
 
 }

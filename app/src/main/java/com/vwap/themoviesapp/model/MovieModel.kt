@@ -17,7 +17,7 @@ data class MovieModel(
     val vote_count: Int
 ) : Parcelable {
     val posterUrl: String
-        get() = "https://image.tmdb.org/t/p/w500/${poster_path}"
+        get() = "https://image.tmdb.org/t/p/w500${poster_path}"
     val imageTransitionName: String
         get() = "${poster_path}_${id}"
     val labelTransitionName: String

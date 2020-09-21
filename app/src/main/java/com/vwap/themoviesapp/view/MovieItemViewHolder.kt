@@ -21,7 +21,7 @@ class MovieItemViewHolder(
 
     init {
         binding.root.setOnSingleClickListener {
-            onMovieClickListener.onMovieClick(binding.item, binding.image, binding.label)
+            onMovieClickListener.onMovieClick(binding.item, binding.image)
         }
         animateView()
     }
@@ -34,7 +34,6 @@ class MovieItemViewHolder(
 
     fun bindTo(item: MovieModel?) {
         //set transition names to support transition animations
-        ViewCompat.setTransitionName(binding.label, item?.labelTransitionName)
         ViewCompat.setTransitionName(binding.image, item?.imageTransitionName)
 
         binding.item = item
@@ -44,20 +43,7 @@ class MovieItemViewHolder(
 }
 
 interface OnMovieClickListener {
-    fun onMovieClick(movieModel: MovieModel?, image: View, label: View)
+    fun onMovieClick(movieModel: MovieModel?, image: View)
 }
 
-/**
- * This binding adapter lets us write app:imageUrl in XML for ImageViews
- * and everything works automagically! You gotta love data binding!
- */
-@BindingAdapter("imageUrl")
-fun loadImage(view: ImageView, url: String?) {
-    if (!url.isNullOrEmpty()) {
-        view.load(url) {
-            crossfade(500)
-            placeholder(R.drawable.poster_placeholder)
-            error(R.drawable.poster_placeholder)
-        }
-    }
-}
+

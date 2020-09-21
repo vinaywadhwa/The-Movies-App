@@ -29,25 +29,5 @@
             app:shapeAppearanceOverlay="@style/roundedImageView"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-        <TextView
-            android:id="@+id/label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:background="#66000000"
-            android:clickable="false"
-            android:ellipsize="end"
-            android:focusable="false"
-            android:gravity="center"
-            android:maxLines="2"
-            android:padding="4dp"
-            android:text="@{item.title}"
-            android:textSize="18sp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Hello There" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

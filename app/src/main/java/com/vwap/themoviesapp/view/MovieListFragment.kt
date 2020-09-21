@@ -1,5 +1,7 @@
 package com.vwap.themoviesapp.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.view.*
@@ -58,7 +60,6 @@ class MovieListFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.activity_menu, menu)
-        initDarkModeSwitch(menu)
         return super.onCreateOptionsMenu(menu, inflater)
     }
 
@@ -70,7 +71,12 @@ class MovieListFragment : Fragment() {
                 Toast.makeText(activity, "refreshing data..", Toast.LENGTH_SHORT).show()
             }
             R.id.about -> {
-                Toast.makeText(activity, "TBD", Toast.LENGTH_SHORT).show()
+                try {
+                    val url = getString(R.string.about_url)
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(url)
+                    startActivity(intent)
+                }catch (ignored:Exception){} // in case device can't handle the ACTION_VIEW intent
             }
         }
         return super.onOptionsItemSelected(item)
@@ -109,10 +115,9 @@ class MovieListFragment : Fragment() {
                     MoviesAdapter(layoutInflater, object : OnMovieClickListener {
                         override fun onMovieClick(
                             movieModel: MovieModel?,
-                            image: View,
-                            label: View
+                            image: View
                         ) {
-                            showDetail(movieModel, image, label)
+                            showDetail(movieModel, image)
                         }
                     }).apply {
                         submitList(it)
@@ -136,11 +141,10 @@ class MovieListFragment : Fragment() {
     /**
      *
      */
-    private fun showDetail(movieModel: MovieModel?, image: View, label: View) {
+    private fun showDetail(movieModel: MovieModel?, image: View) {
         movieModel?.let {
             //get transition names from views, pass it on as extras paired with respective views
             val imageTransitionName: String = ViewCompat.getTransitionName(image).toString()
-            val labelTransitionName: String = ViewCompat.getTransitionName(label).toString()
             val navController = NavHostFragment.findNavController(this)
 
             // The following if condition is a workaround to avoid the crash which
@@ -153,28 +157,10 @@ class MovieListFragment : Fragment() {
                 navController.navigate(
                     MovieListFragmentDirections.showMovieDetail(movieModel, movieModel.title),
                     FragmentNavigatorExtras(
-                        image to imageTransitionName,
-                        label to labelTransitionName
+                        image to imageTransitionName
                     )
                 )
             }
         }
     }
-
-
-
-    private fun initDarkModeSwitch(menu: Menu?) {
-        val switch: SwitchCompat? =
-            menu?.findItem(R.id.dark_mode_switch_menu)?.actionView?.findViewById(
-                R.id.dark_mode_switch
-            )
-        switch?.setOnCheckedChangeListener { _, isChecked ->
-            Toast.makeText(
-                switch.context,
-                if (isChecked) "DARKNESS! (Todo)" else "Let there be Light (theme)",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-
 }

@@ -10,6 +10,7 @@ import com.vwap.themoviesapp.utils.setCustomFont
 import kotlinx.android.synthetic.main.splash_layout.*
 import kotlinx.coroutines.*
 
+const val SPLASH_TIMER = 3000L
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var activityScope: CoroutineScope
@@ -36,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
     private fun startTransitionCoroutine() {
         activityScope = CoroutineScope(Dispatchers.Main)
         activityScope.launch {
-            delay(3000)
+            delay(SPLASH_TIMER)
             startActivity(Intent(this@SplashActivity, MainActivity::class.java))
             finish()
         }
