@@ -2,13 +2,13 @@
 A simple app illustrating some of the latest and greatest Android development principles.
 
 ## 👋🏼 Introduction - What is this ?
-This app uses the [TMDB](https://www.themoviedb.org/documentation/api) api to fetch a list of movies and show them in a RecyclerView. If you click on a movie, it opens a detail page with an enlarged poster and the movie name. That's about it - that's all the app does. (This is not a real, usable app).
+This app uses the [TMDB](https://www.themoviedb.org/documentation/api) api to fetch a list of movies and shows them in a RecyclerView. If you click on a movie poster, it opens a 'detail' page with an enlarged poster and the movie name. That's about it - that's all the app does. (This is not a real, usable app).
 
 ![Demo](01_demo.gif)    
 
 
 ## 🤔 What is this - REALLY?
-The app is REALLY about demonstrating usage of a some open source libraries and modern architecture patterns for Android development, such as the following :
+The app is REALLY about demonstrating usage of open source libraries and modern architecture patterns for Android development, such as the following :
 
 - MVVM architecture pattern
 - LiveData
@@ -27,7 +27,7 @@ and a few others.
 This app implements some frequently encountered patterns in Android development
 
 ### ©️ Caching data for Offline Viewing
-The app caches data received via the API request in a local database (using Room) and uses that in subsequent app launches if there is no/bad internet connectivity. 
+The app caches data received via the API request in a local database (using Room) and uses that data in subsequent app launches if there is no/bad internet connectivity. 
 
 ![Demo](03_caching.gif)
 
@@ -37,4 +37,4 @@ In case there is no internet connectivity when the app is launched for the first
 
 ![Demo](02_empty_screen.gif)
 
-In case, the connectivity comes back, you can press the reload button and the data is downloaded and shown.
+In case, the connectivity comes back, you can press the reload button and the data is downloaded and displayed.
